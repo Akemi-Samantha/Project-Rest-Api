@@ -1,0 +1,13 @@
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-107-22-238-112.compute-1.amazonaws.com:5432/d6mj8t8fkatqd8
+    username: fiavisqtfiilpf
+    password: fa435fcbda4465d6f8f3cdc36b9f4a84bb7e348e7c48f58b74efbfdfb6e86944
