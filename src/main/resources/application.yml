@@ -8,6 +8,6 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://ec2-107-22-238-112.compute-1.amazonaws.com:5432/d6mj8t8fkatqd8
-    username: fiavisqtfiilpf
-    password: fa435fcbda4465d6f8f3cdc36b9f4a84bb7e348e7c48f58b74efbfdfb6e86944
+    url: jdbc:postgresql://ec2-107-22-238-112.compute-1.amazonaws.com:5432/ddtc37rhiol69m
+    username: htlwzxeachuwje
+    password: 6e79d2f061b3436a2ce2e5c2139c70df4149e3bd3f5f51cb67cc0a41f17ddc61
