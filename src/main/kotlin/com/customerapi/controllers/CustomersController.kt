@@ -2,6 +2,7 @@ package com.customerapi.controllers
 
 import com.customerapi.controllers.dto.request.PostCustomerRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
+import com.customerapi.extension.toCustomerModel
 import com.customerapi.model.CustomerModel
 import com.customerapi.service.CustomerService
 import org.springframework.http.HttpStatus
@@ -22,8 +23,9 @@ class CustomersController(
     }
 
     @PostMapping
-    fun createCustomer(@RequestBody customer: PostCustomerRequest){
-            return customerService.createCustomer(customer)
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createCustomer(@RequestBody customer: PostCustomerRequest) {
+        customerService.createCustomer(customer.toCustomerModel())
     }
 
     @GetMapping("/{id}")

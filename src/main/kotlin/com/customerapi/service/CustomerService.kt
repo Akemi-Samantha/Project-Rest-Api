@@ -1,15 +1,17 @@
 package com.customerapi.service
 
-import com.customerapi.controllers.dto.request.PostCustomerRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
 import com.customerapi.model.CustomerModel
+import com.customerapi.repository.CustomerRepository
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 
 @Service
 
-class CustomerService {
+class CustomerService(
+    val customerRepository: CustomerRepository
+) {
 
     val customers = mutableListOf<CustomerModel>()
 
@@ -22,14 +24,8 @@ class CustomerService {
     }
 
 
-    fun createCustomer(customer: PostCustomerRequest){
-        var id = if(customers.isEmpty()){
-            1
-        }
-        else{
-            customers.last().id + 1
-        }
-        customers.add(CustomerModel(id, customer.name ,customer.email, customer.birthDate, customer.cpf,customer.gender))
+    fun createCustomer(customer: CustomerModel){
+        customerRepository.save(customer)
     }
 
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{
