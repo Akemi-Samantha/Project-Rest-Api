@@ -1,32 +1,29 @@
 package com.customerapi.model
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator
-import com.fasterxml.jackson.core.JsonParser.NumberType
-import org.hibernate.type.BigDecimalType
-import org.hibernate.type.UUIDBinaryType
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
-@Entity(name = "tb_customer_api")
+@Entity(name = "tb_test")
     data class CustomerModel(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int? = null,
-    @Column(name = "uuid_customer")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var uuid: UUIDGenerator? = null,
-    @Column(name = "name_customer")
+    @Column
     var name: String,
-    @Column(name = "email_customer")
+    @Column
     var email: String? = null,
-    @Column(name = "birthDate_customer")
+    @Column
     val birthDate: Long? = null,
-    @Column (name = "cpf_customer")
+    @Column
     val cpf: Long? = null,
-    @Column (name = "gender_customer")
+    @Column
     var gender: String? = null,
     // var mainAddress: AddressCustomerModel
 
