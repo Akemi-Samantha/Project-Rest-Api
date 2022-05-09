@@ -2,12 +2,12 @@ package com.customerapi.model
 
 data class CustomerModel(
 
-    var id: Int,
+    var id: Int? = null,
     var name: String,
     var email: String,
-    val birthDate: String,
-    val cpf: String,
-    var gender: String,
+    val birthDate: String? = null,
+    val cpf: String? = null,
+    var gender: String? = null
     // var mainAddress: AddressCustomerModel
 
 )

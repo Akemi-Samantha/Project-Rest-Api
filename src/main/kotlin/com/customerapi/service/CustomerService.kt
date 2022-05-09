@@ -22,29 +22,30 @@ class CustomerService {
     }
 
 
-    fun createCustomer(customer: PostCustomerRequest){
+    fun createCustomer(customer: CustomerModel){
         var id = if(customers.isEmpty()){
             1
         }
         else{
-            customers.last().id + 1
+            customers.last().id!! + 1
         }
-        customers.add(CustomerModel(id, customer.name ,customer.email, customer.birthDate, customer.cpf,customer.gender))
+        customer.id = id
+        customers.add(customer)
     }
 
-    fun getCustomerById(@PathVariable id: Int ): CustomerModel{
+    fun getCustomerById( id: Int ): CustomerModel{
         return customers.filter { it.id ==id }.first()
     }
 
-    fun updateCustomer(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
-        return customers.filter { it.id == id }.first().let {
+    fun updateCustomer(customer: CustomerModel){
+        return customers.filter { it.id == customer.id }.first().let {
             it.email = customer.email
             it.name = customer.name
             it.gender = customer.gender
         }
     }
 
-    fun deleteCustomer(@PathVariable id: Int){
+    fun deleteCustomer( id: Int){
         customers.removeIf { it.id == id }
     }
 
