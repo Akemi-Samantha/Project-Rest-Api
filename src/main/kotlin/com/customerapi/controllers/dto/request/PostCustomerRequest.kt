@@ -5,6 +5,6 @@ data class PostCustomerRequest(
     var name: String,
     var email: String,
     val birthDate: String,
-    val cpf: Long,
+    val cpf: String,
     var gender: String,
 )

@@ -3,6 +3,7 @@ package com.customerapi.service
 import com.customerapi.controllers.dto.request.PutCustomerRequest
 import com.customerapi.model.CustomerModel
 import com.customerapi.repository.CustomerRepository
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
@@ -29,19 +30,22 @@ class CustomerService(
     }
 
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{
-        return customers.filter { it.id ==id }.first()
+        return customerRepository.findById(id).orElseThrow()
     }
 
-    fun updateCustomer(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
-        return customers.filter { it.id == id }.first().let {
-            it.email = customer.email
-            it.name = customer.name
-            it.gender = customer.gender
+    fun updateCustomer(customer: CustomerModel){
+
+        if(!customerRepository.existsById(customer.id!!)){
+            throw Exception("Id não encontrado")
         }
+        customerRepository.save(customer)
     }
 
     fun deleteCustomer(@PathVariable id: Int){
-        customers.removeIf { it.id == id }
+        if(!customerRepository.existsById(id)){
+            throw Exception("Id não encontrado")
+        }
+        customerRepository.deleteById(id)
     }
 
 

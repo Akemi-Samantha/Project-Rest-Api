@@ -1,6 +1,9 @@
 package com.customerapi.model
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator
+import org.hibernate.id.UUIDGenerationStrategy
+import org.hibernate.type.UUIDBinaryType
+import java.util.UUID
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -13,16 +16,16 @@ import javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int? = null,
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var uuid: UUIDGenerator? = null,
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    var uuid: UUID? = null,
     @Column
     var name: String,
     @Column
     var email: String? = null,
     @Column
-    val birthDate: String? = null,
+    val birth_date: String? = null,
     @Column
-    val cpf: Long? = null,
+    val cpf: String? = null,
     @Column
     var gender: String? = null,
     // var mainAddress: AddressCustomerModel
