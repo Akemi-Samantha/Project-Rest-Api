@@ -2,9 +2,9 @@ package com.customerapi.controllers
 
 import com.customerapi.controllers.dto.request.PostCustomerRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
+import com.customerapi.extension.toCustomerModel
 import com.customerapi.model.CustomerModel
 import com.customerapi.service.CustomerService
-import com.mercadolivro.extension.toCustomerModel
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -23,8 +23,9 @@ class CustomersController(
     }
 
     @PostMapping
-    fun createCustomer(@RequestBody customer: PostCustomerRequest){
-            return customerService.createCustomer(customer.toCustomerModel())
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createCustomer(@RequestBody customer: PostCustomerRequest) {
+        customerService.createCustomer(customer.toCustomerModel())
     }
 
     @GetMapping("/{id}")
@@ -35,7 +36,7 @@ class CustomersController(
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun updateCustomer(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
-            return customerService.updateCustomer(customer.toCustomerModel(id))
+            return customerService.updateCustomer(id, customer)
     }
 
     @DeleteMapping("/{id}")
