@@ -20,7 +20,7 @@ import javax.persistence.Id
     @Column
     var email: String? = null,
     @Column
-    val birthDate: Long? = null,
+    val birthDate: String? = null,
     @Column
     val cpf: Long? = null,
     @Column
