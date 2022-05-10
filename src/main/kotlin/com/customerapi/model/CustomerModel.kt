@@ -1,8 +1,5 @@
 package com.customerapi.model
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator
-import org.hibernate.id.UUIDGenerationStrategy
-import org.hibernate.type.UUIDBinaryType
 import java.util.UUID
 import javax.persistence.Column
 import javax.persistence.Entity

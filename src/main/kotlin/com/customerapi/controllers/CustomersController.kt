@@ -18,8 +18,8 @@ class CustomersController(
     val customers = mutableListOf<CustomerModel>()
 
     @GetMapping
-    fun getAll(@RequestParam name:String?): List<CustomerModel>{
-        return customerService.getAll(name)
+    fun getAll(@RequestParam name:String?, id:Int?): List<CustomerModel>{
+        return customerService.getAll(name, id)
     }
 
     @PostMapping

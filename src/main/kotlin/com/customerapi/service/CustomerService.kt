@@ -13,15 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody
 class CustomerService(
     val customerRepository: CustomerRepository
 ) {
-
-    val customers = mutableListOf<CustomerModel>()
-
-    fun getAll(name:String?): List<CustomerModel>{
+// verificar o name?.let
+    fun getAll(name:String?, id: Int?): List<CustomerModel>{
 
         name?.let{
-            return customers.filter { it.name.contains(name,true) }
+            return customerRepository.findAllByNameOrId(name,id)
         }
-        return customers
+        return customerRepository.findAll().toList()
     }
 
 
