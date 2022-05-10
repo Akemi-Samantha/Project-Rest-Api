@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
-@Entity(name = "tb_test")
+@Entity(name = "tb_customer_api")
     data class CustomerModel(
 
     @Id

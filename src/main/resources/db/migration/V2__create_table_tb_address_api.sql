@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS public.tb_address_api
     zipCode varchar(255)  UNIQUE,
     number int  ,
     additionalInformation varchar (255),
-    main
+    main boolean ,
     CONSTRAINT tb_address_api_pkey PRIMARY KEY (id_address)
 );
