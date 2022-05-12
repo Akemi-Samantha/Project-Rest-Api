@@ -8,5 +8,6 @@ CREATE TABLE IF NOT EXISTS public.tb_address_api
     number int  ,
     additionalInformation varchar (255),
     main boolean ,
-    CONSTRAINT tb_address_api_pkey PRIMARY KEY (id_address)
+    CONSTRAINT tb_address_api_pkey PRIMARY KEY (id_address),
+    CONSTRAINT tb_address_api_fkey FOREIGN KEY (id_customer)
 );

@@ -1,10 +1,6 @@
 package com.customerapi.model
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity(name = "tb_address_api")
 data class AddressModel(
@@ -25,7 +21,9 @@ data class AddressModel(
     @Column
     var additionalInformation: String? = null,
     @Column
-    var main: Boolean? = null
-
+    var main: Boolean? = null,
+    @ManyToOne
+    @JoinColumn(name = "id_customer")
+    var customer: CustomerModel? = null
 
 )

@@ -7,4 +7,5 @@ data class PostCustomerRequest(
     val birthDate: String,
     val cpf: String,
     var gender: String,
+//  var address: AddressModel
 )
