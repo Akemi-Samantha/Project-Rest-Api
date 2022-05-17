@@ -23,6 +23,7 @@ import javax.persistence.*
     val cpf: String? = null,
     @Column
     var gender: String? = null,
-    @JoinTable(name = "tb_address_api")
-    var mainAddress: PostAddressRequest? = null
+    @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
+    @JoinColumn(name = "customer_id")
+    var mainAddress: AddressModel? = null
 )

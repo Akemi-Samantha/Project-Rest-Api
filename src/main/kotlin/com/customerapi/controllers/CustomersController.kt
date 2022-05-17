@@ -28,25 +28,15 @@ class CustomersController(
         return customerService.getAll(name, id)
     }
 
-//
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    fun createCustomer(@RequestBody customer: PostCustomerRequest):ResponseEntity<CustomerModel> =
-//        customerService.createCustomer(customer.toCustomerModel())
-
-    @PostMapping()
+    @PostMapping("/createCustomer")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun createCustomer(@RequestBody customer:PostCustomerRequest ): CustomerModel {
         println(customer)
       val result =  repositoryTest.save(customer.toCustomerModel())
         return result
     }
 
-    //        var resultAddress = addressService.createAddress()
-    //val resultAddress =  chamar repository find service Address FindAllBYIDCustomer(customerID)
-    //result.Address = ResulAddress
-
-
-    @GetMapping("/test/{id}")
+    @GetMapping("/getCustomerById/{id}",)
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{
         return customerService.getCustomerById(id)
     }

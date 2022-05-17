@@ -1,6 +1,6 @@
 package com.customerapi.controllers.dto.request
 
-import com.customerapi.controllers.dto.request.PostAddressRequest as PostAddressRequest1
+import com.customerapi.model.AddressModel
 
 data class PostCustomerRequest(
 
@@ -9,5 +9,5 @@ data class PostCustomerRequest(
     val birthDate: String,
     val cpf: String,
     var gender: String,
-    var address: PostAddressRequest1
+    var address: AddressModel
 )
