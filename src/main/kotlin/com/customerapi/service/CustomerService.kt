@@ -1,12 +1,11 @@
 package com.customerapi.service
 
-import com.customerapi.controllers.dto.request.PutCustomerRequest
 import com.customerapi.model.CustomerModel
 import com.customerapi.repository.CustomerRepository
-import org.springframework.data.repository.findByIdOrNull
+import com.customerapi.repository.RepositoryTest
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestBody
 
 @Service
 
@@ -20,11 +19,6 @@ class CustomerService(
             return customerRepository.findAllByNameOrId(name,id)
         }
         return customerRepository.findAll().toList()
-    }
-
-
-    fun createCustomer(customer: CustomerModel){
-        customerRepository.save(customer)
     }
 
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{

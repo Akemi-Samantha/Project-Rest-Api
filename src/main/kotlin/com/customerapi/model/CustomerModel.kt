@@ -16,7 +16,7 @@ import javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var uuid: UUID? = null,
     @Column
-    var name: String,
+    var name: String? = null,
     @Column
     var email: String? = null,
     @Column

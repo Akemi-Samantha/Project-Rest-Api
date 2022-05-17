@@ -17,13 +17,15 @@ data class AddressModel(
     @Column
     var zipCode: String? = null,
     @Column
-    var number: Int? = null,
+    var street : String? = null,
+    @Column
+    var number: String? = null,
     @Column
     var additionalInformation: String? = null,
     @Column
     var main: Boolean? = null,
     @ManyToOne
-    @JoinColumn(name = "id_customer")
+    @JoinColumn(name = "customer_id")
     var customer: CustomerModel? = null
 
 )

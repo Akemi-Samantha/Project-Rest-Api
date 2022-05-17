@@ -4,15 +4,20 @@ import com.customerapi.controllers.dto.request.PostCustomerRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
 import com.customerapi.extension.toCustomerModel
 import com.customerapi.model.CustomerModel
+import com.customerapi.repository.RepositoryTest
+import com.customerapi.service.AddressService
 import com.customerapi.service.CustomerService
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("customers")
 
 class CustomersController(
-    var customerService: CustomerService
+    var customerService: CustomerService,
+    val repositoryTest: RepositoryTest,
+    var addressService: AddressService
 ) {
 
     val customers = mutableListOf<CustomerModel>()
@@ -22,13 +27,23 @@ class CustomersController(
         return customerService.getAll(name, id)
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    fun createCustomer(@RequestBody customer: PostCustomerRequest) {
-        customerService.createCustomer(customer.toCustomerModel())
+//
+//    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+//    fun createCustomer(@RequestBody customer: PostCustomerRequest):ResponseEntity<CustomerModel> =
+//        customerService.createCustomer(customer.toCustomerModel())
+
+    @PostMapping()
+    fun createCustomer(@RequestBody customer: CustomerModel) {
+
+        val result =  repositoryTest.save(customer)
+        //val resultAddress =chamar repository find service Address FindAllBYIDCustomer(customerID)
+        //result.Address = ResulAddress
+        //return result
+
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/test/{id}")
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{
         return customerService.getCustomerById(id)
     }

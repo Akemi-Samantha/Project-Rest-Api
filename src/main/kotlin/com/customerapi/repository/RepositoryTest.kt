@@ -2,9 +2,7 @@ package com.customerapi.repository
 
 import com.customerapi.model.CustomerModel
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.repository.CrudRepository
 
-interface CustomerRepository: JpaRepository<CustomerModel, Int > {
-
-    fun findAllByNameOrId(name: String?, id: Int?):List<CustomerModel>
-
+interface RepositoryTest:CrudRepository<CustomerModel, Int> {
 }
