@@ -7,7 +7,7 @@ import com.customerapi.model.AddressModel
 import com.customerapi.model.CustomerModel
 
 fun PostCustomerRequest.toCustomerModel(): CustomerModel {
-    return CustomerModel(name = this.name, email = this.email, birth_date = this.birthDate, cpf = this.cpf, gender = this.gender)
+    return CustomerModel(name = this.name, email = this.email, birth_date = this.birthDate, cpf = this.cpf, gender = this.gender, mainAddress = this.address)
 }
 
 fun PutCustomerRequest.toCustomerModel(id: Int): CustomerModel{

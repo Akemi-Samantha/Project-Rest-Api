@@ -1,11 +1,9 @@
 package com.customerapi.model
 
+import com.customerapi.controllers.dto.request.PostAddressRequest
 import java.util.UUID
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
+
 
 @Entity(name = "tb_customer_api")
     data class CustomerModel(
@@ -25,6 +23,6 @@ import javax.persistence.Id
     val cpf: String? = null,
     @Column
     var gender: String? = null,
-    // var mainAddress: AddressCustomerModel
-
+    @JoinTable(name = "tb_address_api")
+    var mainAddress: PostAddressRequest? = null
 )

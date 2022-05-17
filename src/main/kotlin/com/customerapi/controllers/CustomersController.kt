@@ -1,5 +1,6 @@
 package com.customerapi.controllers
 
+import com.customerapi.controllers.dto.request.PostAddressRequest
 import com.customerapi.controllers.dto.request.PostCustomerRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
 import com.customerapi.extension.toCustomerModel
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*
 class CustomersController(
     var customerService: CustomerService,
     val repositoryTest: RepositoryTest,
-    var addressService: AddressService
+    var addressController: AddressController
 ) {
 
     val customers = mutableListOf<CustomerModel>()
@@ -34,14 +35,16 @@ class CustomersController(
 //        customerService.createCustomer(customer.toCustomerModel())
 
     @PostMapping()
-    fun createCustomer(@RequestBody customer: CustomerModel) {
-
-        val result =  repositoryTest.save(customer)
-        //val resultAddress =chamar repository find service Address FindAllBYIDCustomer(customerID)
-        //result.Address = ResulAddress
-        //return result
-
+    fun createCustomer(@RequestBody customer:PostCustomerRequest ): CustomerModel {
+        println(customer)
+      val result =  repositoryTest.save(customer.toCustomerModel())
+        return result
     }
+
+    //        var resultAddress = addressService.createAddress()
+    //val resultAddress =  chamar repository find service Address FindAllBYIDCustomer(customerID)
+    //result.Address = ResulAddress
+
 
     @GetMapping("/test/{id}")
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{
