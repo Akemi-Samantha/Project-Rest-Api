@@ -21,20 +21,17 @@ class CustomersController(
     var addressController: AddressController
 ) {
 
-    val customers = mutableListOf<CustomerModel>()
-
     @GetMapping
     fun getAll(@RequestParam name:String?, id:Int?): List<CustomerModel>{
         return customerService.getAll(name, id)
     }
 
     @PostMapping("/createCustomer")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun createCustomer(@RequestBody customer:PostCustomerRequest ): CustomerModel {
-        println(customer)
-      val result =  repositoryTest.save(customer.toCustomerModel())
-        return result
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createCustomer(@RequestBody customer: PostCustomerRequest): CustomerModel {
+        return customerService.create(customer)
     }
+
 
     @GetMapping("/getCustomerById/{id}",)
     fun getCustomerById(@PathVariable id: Int ): CustomerModel{

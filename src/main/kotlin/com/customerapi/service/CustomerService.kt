@@ -1,5 +1,7 @@
 package com.customerapi.service
 
+import com.customerapi.controllers.dto.request.PostCustomerRequest
+import com.customerapi.extension.toCustomerModel
 import com.customerapi.model.CustomerModel
 import com.customerapi.repository.CustomerRepository
 import com.customerapi.repository.RepositoryTest
@@ -10,9 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable
 @Service
 
 class CustomerService(
-    val customerRepository: CustomerRepository
+    val customerRepository: CustomerRepository,
+    val repositoryTest: RepositoryTest
 ) {
-// verificar o name?.let
+
+
+
+    fun create(customer: PostCustomerRequest): CustomerModel {
+        val result =  repositoryTest.save(customer.toCustomerModel())
+        return result
+    }
+
     fun getAll(name:String?, id: Int?): List<CustomerModel>{
 
         name?.let{

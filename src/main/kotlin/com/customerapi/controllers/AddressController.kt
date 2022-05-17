@@ -16,17 +16,17 @@ class AddressController(
    var customerService: CustomerService
 ) {
 
-    @PostMapping
+    @PostMapping("/createAddress")
     @ResponseStatus(HttpStatus.CREATED)
     fun createAddress(@RequestBody request: PostAddressRequest) {
         val customer = customerService.getCustomerById(request.customerId)
         addressService.createAddress(request.toAddressModel(customer))
     }
 
-//    @GetMapping
-//    fun getAllAddress(): List<AddressModel>{
-//        return addressService.getAllAddress()
-//    }
+    @GetMapping("/getAllAddress")
+    fun getAllAddress(): List<AddressModel>{
+        return addressService.getAllAddress()
+    }
 
     @GetMapping("/getByIdCustomer/{id}")
     fun getByIdCustomer(@PathVariable id: Int):List<AddressModel> {
