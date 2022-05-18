@@ -1,18 +1,17 @@
 package com.customerapi.service
 
 import com.customerapi.model.AddressModel
+import com.customerapi.repository.AddressIdRepository
 import com.customerapi.repository.AddressRepository
 import com.customerapi.repository.QueryRepository
-import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.ResponseStatus
+
 
 @Service
 class AddressService(
    var addressRepository: AddressRepository,
-   var queryRepository: QueryRepository
+   var queryRepository: QueryRepository,
+   var addressIdRepository: AddressIdRepository
 ) {
 
 
@@ -27,5 +26,10 @@ class AddressService(
     fun getByIdCustomer(customerId: Int): List<AddressModel> {
         return queryRepository.findAllByIdCustomer(customerId)
     }
+
+//    fun getFindByIdAddress(id: Int): AddressModel {
+//        return addressRepository.findById(id).orElseThrow()
+//
+//    }
 
 }

@@ -34,9 +34,9 @@ class AddressController(
     }
 
 
-//    @GetMapping
-//    fun getFindById(@RequestBody request: PostAddressRequest):List<AddressModel>{
-//        return addressService.getAll(request.customerId)
+//    @GetMapping("/getFindByIdAddress/{id}")
+//    fun getFindByIdAddress(@PathVariable id:Int):AddressModel{
+//        return addressService.getFindByIdAddress(id)
 //    }
 
 
