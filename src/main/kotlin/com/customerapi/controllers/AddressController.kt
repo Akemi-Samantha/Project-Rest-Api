@@ -28,16 +28,16 @@ class AddressController(
         return addressService.getAllAddress()
     }
 
-    @GetMapping("/getByIdCustomer/{id}")
-    fun getByIdCustomer(@PathVariable id: Int):List<AddressModel> {
-        return addressService.getByIdCustomer(id)
-    }
+//    @GetMapping("/getByIdCustomer/{id}")
+//    fun getByIdCustomer(@PathVariable id: Int):List<AddressModel> {
+//        return addressService.getByIdCustomer(id)
+//    }
 
 
-    @GetMapping("/getFindByIdAddress/{id}")
-    fun getFindByIdAddress(@PathVariable id:Int):AddressModel{
-        return addressService.getFindByIdAddress(id)
-    }
+//    @GetMapping("/getFindByIdAddress/{id}")
+//    fun getFindByIdAddress(@PathVariable id:Int):AddressModel{
+//        return addressService.getFindByIdAddress(id)
+//    }
 
 
 

@@ -21,13 +21,13 @@ class AddressService(
         return addressRepository.findAll().toList()
     }
 
-    fun getByIdCustomer(customerId: Int): List<AddressModel> {
-        return queryRepository.findByIdCustomer(customerId)
-    }
+//    fun getByIdCustomer(customerId: Int): List<AddressModel> {
+//        return addressRepository.findByIdCustomer(customerId)
+//    }
 
-    fun getFindByIdAddress(id: Int): AddressModel {
-        return addressRepository.findById(id).orElseThrow()
-
-    }
+//    fun getFindByIdAddress(id: Int): AddressModel {
+//        return addressRepository.findById(id).orElseThrow()
+//
+//    }
 
 }

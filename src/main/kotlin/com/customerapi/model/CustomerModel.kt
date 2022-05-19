@@ -22,7 +22,7 @@ import javax.persistence.*
     val cpf: String? = null,
     @Column
     var gender: String? = null,
-    @OneToMany
+    @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
     @JoinColumn(name = "customer_id")
     var mainAddress: AddressModel? = null
 )
