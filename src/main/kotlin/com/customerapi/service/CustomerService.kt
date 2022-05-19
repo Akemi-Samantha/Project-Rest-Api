@@ -31,7 +31,7 @@ class CustomerService(
         return customerRepository.findAll().toList()
     }
 
-    fun getCustomerById(@PathVariable id: Int ): CustomerModel{
+    fun getCustomerById( id: Int ): CustomerModel{
         return customerRepository.findById(id).orElseThrow()
     }
 

@@ -1,5 +1,7 @@
 package com.customerapi.model
 
+import org.hibernate.annotations.OnDelete
+import org.hibernate.annotations.OnDeleteAction
 import javax.persistence.*
 
 @Entity(name = "tb_address_api")
@@ -14,13 +16,13 @@ data class AddressModel(
     var city: String? = null,
     @Column
     var neighborhood: String? = null,
-    @Column
+    @Column (name = "zip_code")
     var zipCode: String? = null,
     @Column
     var street : String? = null,
     @Column
     var number: String? = null,
-    @Column
+    @Column(name = "additional_information")
     var additionalInformation: String? = null,
     @Column
     var main: Boolean? = null,

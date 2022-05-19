@@ -1,6 +1,5 @@
 package com.customerapi.model
 
-import com.customerapi.controllers.dto.request.PostAddressRequest
 import java.util.UUID
 import javax.persistence.*
 
@@ -17,13 +16,13 @@ import javax.persistence.*
     var name: String? = null,
     @Column
     var email: String? = null,
-    @Column
-    val birth_date: String? = null,
+    @Column(name = "birth_date")
+    val birthDate: String? = null,
     @Column
     val cpf: String? = null,
     @Column
     var gender: String? = null,
-    @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
+    @OneToOne(cascade = arrayOf(CascadeType.MERGE))
     @JoinColumn(name = "customer_id")
     var mainAddress: AddressModel? = null
 )

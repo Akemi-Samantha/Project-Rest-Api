@@ -1,7 +1,6 @@
 package com.customerapi.service
 
 import com.customerapi.model.AddressModel
-import com.customerapi.repository.AddressIdRepository
 import com.customerapi.repository.AddressRepository
 import com.customerapi.repository.QueryRepository
 import org.springframework.stereotype.Service
@@ -10,9 +9,8 @@ import org.springframework.stereotype.Service
 @Service
 class AddressService(
    var addressRepository: AddressRepository,
-   var queryRepository: QueryRepository,
-   var addressIdRepository: AddressIdRepository
-) {
+   var queryRepository: QueryRepository
+   ) {
 
 
     fun createAddress( address: AddressModel){
@@ -24,12 +22,22 @@ class AddressService(
     }
 
     fun getByIdCustomer(customerId: Int): List<AddressModel> {
-        return queryRepository.findAllByIdCustomer(customerId)
+        return addressRepository.findByIdCustomer(customerId)
     }
 
-//    fun getFindByIdAddress(id: Int): AddressModel {
-//        return addressRepository.findById(id).orElseThrow()
+    fun getFindByIdAddress(id: Int): AddressModel {
+        return addressRepository.findById(id).orElseThrow()
+
+    }
+
+    fun deleteAddress(id: Int) {
+        val findIdCustomer = getByIdCustomer(id)
+        addressRepository.deleteById(findIdCustomer)
+    }
+
+//    fun updateAddress(toAddressModel: Any) {
 //
 //    }
+
 
 }
