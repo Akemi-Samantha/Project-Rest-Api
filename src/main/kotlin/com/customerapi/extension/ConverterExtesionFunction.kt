@@ -2,7 +2,6 @@ package com.customerapi.extension
 
 import com.customerapi.controllers.dto.request.PostAddressRequest
 import com.customerapi.controllers.dto.request.PostCustomerRequest
-import com.customerapi.controllers.dto.request.PutAddressRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
 import com.customerapi.model.AddressModel
 import com.customerapi.model.CustomerModel
@@ -31,19 +30,4 @@ fun PostAddressRequest.toAddressModel(customer : CustomerModel): AddressModel {
     )
 }
 
-fun PutAddressRequest.toAddressModel(id: Int): AddressModel{
-        return AddressModel(
-            id = id,
-            state = this.state,
-            city = this.city,
-            neighborhood = this.neighborhood,
-            zipCode = this.zipCode,
-            number = this.number,
-            street = this.street ,
-            additionalInformation = this.additionalInformation,
-            main = this.main,
-
-
-        )
-    }
 

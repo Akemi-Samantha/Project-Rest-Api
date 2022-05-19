@@ -22,22 +22,12 @@ class AddressService(
     }
 
     fun getByIdCustomer(customerId: Int): List<AddressModel> {
-        return addressRepository.findByIdCustomer(customerId)
+        return queryRepository.findByIdCustomer(customerId)
     }
 
     fun getFindByIdAddress(id: Int): AddressModel {
         return addressRepository.findById(id).orElseThrow()
 
     }
-
-    fun deleteAddress(id: Int) {
-        val findIdCustomer = getByIdCustomer(id)
-        addressRepository.deleteById(findIdCustomer)
-    }
-
-//    fun updateAddress(toAddressModel: Any) {
-//
-//    }
-
 
 }

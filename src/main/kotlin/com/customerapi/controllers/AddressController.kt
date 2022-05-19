@@ -1,7 +1,6 @@
 package com.customerapi.controllers
 
 import com.customerapi.controllers.dto.request.PostAddressRequest
-import com.customerapi.controllers.dto.request.PutAddressRequest
 import com.customerapi.extension.toAddressModel
 import com.customerapi.model.AddressModel
 import com.customerapi.service.AddressService
@@ -39,21 +38,6 @@ class AddressController(
     fun getFindByIdAddress(@PathVariable id:Int):AddressModel{
         return addressService.getFindByIdAddress(id)
     }
-
-
-    @DeleteMapping("/deleteAddress/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deleteAddress(@PathVariable id: Int) {
-        addressService.deleteAddress(id)
-    }
-
-//    @PutMapping("/{id}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    fun updateAddress(@PathVariable id: Int, @RequestBody address: PutAddressRequest) {
-//        val update = addressService.getFindByIdAddress(id)
-//        addressService.updateAddress(address.toAddressModel(update))
-//    }
-
 
 
 
