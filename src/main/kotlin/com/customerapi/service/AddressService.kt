@@ -3,6 +3,7 @@ package com.customerapi.service
 import com.customerapi.model.AddressModel
 import com.customerapi.repository.AddressRepository
 import org.springframework.stereotype.Service
+import java.util.*
 
 
 @Service
@@ -19,9 +20,9 @@ class AddressService(
         return addressRepository.findAll().toList()
     }
 
-//    fun getByIdCustomer(customerId: Int): List<AddressModel> {
-//        return addressRepository.findByIdCustomer(customerId)
-//    }
+    fun getByIdCustomer(customerId:Int): AddressModel {
+        return addressRepository.findByIdCustomer(customerId)
+    }
 
 //    fun getFindByIdAddress(id: Int): AddressModel {
 //        return addressRepository.findById(id).orElseThrow()

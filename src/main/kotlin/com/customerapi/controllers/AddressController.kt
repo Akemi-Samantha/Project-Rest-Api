@@ -3,10 +3,12 @@ package com.customerapi.controllers
 import com.customerapi.controllers.dto.request.PostAddressRequest
 import com.customerapi.extension.toAddressModel
 import com.customerapi.model.AddressModel
+import com.customerapi.model.CustomerModel
 import com.customerapi.service.AddressService
 import com.customerapi.service.CustomerService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 @RestController
 @RequestMapping("address")
@@ -28,10 +30,14 @@ class AddressController(
         return addressService.getAllAddress()
     }
 
-//    @GetMapping("/getByIdCustomer/{id}")
-//    fun getByIdCustomer(@PathVariable id: Int):List<AddressModel> {
-//        return addressService.getByIdCustomer(id)
-//    }
+    // precisa fazer retornar o customerId, aparentemente ele n está sendo reconhecido...
+    //Verificar pesquisa sobre relacionamento bidirecional...
+    //@ManyToMany - pesquisar
+    @GetMapping("/getByIdCustomer/{customerId}")
+    fun getByIdCustomer(@PathVariable customerId: Int): AddressModel {
+        return addressService.getByIdCustomer(customerId)
+
+    }
 
 
 //    @GetMapping("/getFindByIdAddress/{id}")
