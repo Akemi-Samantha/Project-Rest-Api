@@ -8,7 +8,6 @@ import com.customerapi.service.AddressService
 import com.customerapi.service.CustomerService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import java.util.*
 
 @RestController
 @RequestMapping("address")
@@ -33,9 +32,9 @@ class AddressController(
     // precisa fazer retornar o customerId, aparentemente ele n está sendo reconhecido...
     //Verificar pesquisa sobre relacionamento bidirecional...
     //@ManyToMany - pesquisar
-    @GetMapping("/getByIdCustomer/{customerId}")
-    fun getByIdCustomer(@PathVariable customerId: Int): AddressModel {
-        return addressService.getByIdCustomer(customerId)
+    @GetMapping("/getByIdCustomer/{customer}")
+    fun getByIdCustomer(@PathVariable customer: CustomerModel): List<AddressModel> {
+        return addressService.getByIdCustomer(customer)
 
     }
 

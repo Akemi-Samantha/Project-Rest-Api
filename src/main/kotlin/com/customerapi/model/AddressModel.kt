@@ -1,6 +1,5 @@
 package com.customerapi.model
 
-
 import javax.persistence.*
 
 @Entity(name = "tb_address_api")
@@ -25,7 +24,7 @@ data class AddressModel(
     var additionalInformation: String? = null,
     @Column
     var main: Boolean? = null,
-    @ManyToOne
+    @ManyToMany(cascade = [CascadeType.ALL])
     @JoinColumn(name = "customer_id")
     var customer: CustomerModel? = null
 
