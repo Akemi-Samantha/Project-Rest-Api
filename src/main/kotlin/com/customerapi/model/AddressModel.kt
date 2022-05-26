@@ -24,7 +24,7 @@ data class AddressModel(
     var additionalInformation: String? = null,
     @Column
     var main: Boolean? = null,
-    @ManyToMany(cascade = [CascadeType.ALL])
+    @ManyToOne(cascade = [CascadeType.PERSIST])
     @JoinColumn(name = "customer_id")
     var customer: CustomerModel? = null
 
