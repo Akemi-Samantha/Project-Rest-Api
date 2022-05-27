@@ -16,7 +16,7 @@ fun PutCustomerRequest.toCustomerModel(id: Int): CustomerModel{
 
 // Addresses
 
-fun PostAddressRequest.toAddressModel(customer : CustomerModel): AddressModel {
+fun PostAddressRequest.toAddressModel(customer: CustomerModel): AddressModel {
     return AddressModel(
         state = this.state,
         city = this.city,

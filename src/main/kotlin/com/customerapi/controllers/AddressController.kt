@@ -23,31 +23,25 @@ class AddressController(
         addressService.createAddress(request.toAddressModel(customer))
     }
 
-//    @GetMapping("/getAllAddress")
-//    fun getAllAddress(): List<AddressModel>{
-//        return addressService.getAllAddress()
-//    }
-
     // precisa fazer retornar o customerId, aparentemente ele n está sendo reconhecido...
     //Verificar pesquisa sobre relacionamento bidirecional...
     //@ManyToMany - pesquisar
 
 
     @GetMapping("/findByCustomerId/{customer}")
-    fun findByCustomerId(@PathVariable customer: Int ): AddressModel{
+    fun findByCustomerId(@PathVariable customer: Int ): List<AddressModel>{
         return addressService.findByCustomerId(customer)
     }
 
 
-
-
-//    @GetMapping("/getFindByIdAddress/{id}")
-//    fun getFindByIdAddress(@PathVariable id:Int):AddressModel{
-//        return addressService.getFindByIdAddress(id)
-//    }
-
+    @GetMapping("/getFindByIdAddress/{id}")
+    fun getFindByIdAddress(@PathVariable id:Int):AddressModel{
+        return addressService.getFindByIdAddress(id)
+    }
 
 
 
+// @PutMapping
+// @DeleteMapping
 
 }

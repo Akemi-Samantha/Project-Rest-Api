@@ -18,18 +18,16 @@ class AddressService(
         addressRepository.save(address)
     }
 
-//    fun getAllAddress(): List<AddressModel>{
-//        return addressRepository.findAll().toList()
-//    }
 
-    fun findByCustomerId(customer: Int): AddressModel {
+
+    fun findByCustomerId(customer: Int): List<AddressModel> {
         return addressRepository.findByCustomerId(customer)
     }
 
 
-//    fun getFindByIdAddress(id: Int): AddressModel {
-//        return addressRepository.findById(id).orElseThrow()
-//
-//    }
+    fun getFindByIdAddress(id: Int): AddressModel {
+        return addressRepository.findById(id).orElseThrow()
+
+    }
 
 }
