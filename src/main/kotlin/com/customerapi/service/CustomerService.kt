@@ -21,10 +21,10 @@ class CustomerService(
         return result
     }
 
-    fun getAll(name:String?, id: Int?): List<CustomerModel>{
+    fun getAll(name:String?): List<CustomerModel>{
 
         name?.let{
-            return customerRepository.findAllByNameOrId(name,id)
+            return customerRepository.findAllByName(name)
         }
         return customerRepository.findAll().toList()
     }

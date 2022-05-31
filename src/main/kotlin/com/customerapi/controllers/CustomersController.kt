@@ -16,8 +16,8 @@ class CustomersController(
 ) {
 
     @GetMapping
-    fun getAll(@RequestParam name:String?, id:Int?): List<CustomerModel>{
-        return customerService.getAll(name, id)
+    fun getAll(@RequestParam name:String?): List<CustomerModel>{
+        return customerService.getAll(name)
     }
 
     @PostMapping("/createCustomer")
