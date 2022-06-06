@@ -22,12 +22,7 @@ class AddressService(
     }
     
     fun findByCustomerId(customer: Int?): List<AddressModel> {
-
-        if (customer ==  null) {
-            return getAll()
-        }
         return addressRepository.findByCustomerId(customer)
-
     }
 
     fun getFindByIdAddress(id: Int): AddressModel {
@@ -39,9 +34,6 @@ class AddressService(
     }
 
     fun delete(id: Int) {
-        if(!addressRepository.existsById(id)){
-            throw Exception("Id não encontrado")
-        }
         addressRepository.deleteById(id)
     }
 

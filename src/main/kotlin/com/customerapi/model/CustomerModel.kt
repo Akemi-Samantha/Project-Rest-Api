@@ -22,6 +22,6 @@ import javax.persistence.*
     val cpf: String? = null,
     @Column
     var gender: String? = null,
-    @ManyToOne(cascade = [CascadeType.ALL])
-    var mainAddress: AddressModel? = null
+    @OneToMany(cascade = [CascadeType.ALL],mappedBy="customer")
+    var mainAddress: List<AddressModel>? = null
 )

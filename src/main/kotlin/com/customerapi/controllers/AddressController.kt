@@ -41,11 +41,11 @@ class AddressController(
 
 
 // @PutMapping
- @DeleteMapping("/deleteAddress/{id}")
- @ResponseStatus(HttpStatus.NO_CONTENT)
- fun deleteAddress(@PathVariable id: Int){
-     return addressService.delete(id)
- }
+     @DeleteMapping("/deleteAddress/{id}")
+     @ResponseStatus(HttpStatus.NO_CONTENT)
+     fun deleteAddress(@PathVariable id: Int){
+         return addressService.delete(id)
+     }
 
 }
 
