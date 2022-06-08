@@ -1,18 +1,19 @@
 package com.customerapi.service
 
 import com.customerapi.model.AddressModel
+import com.customerapi.model.CustomerModel
 import com.customerapi.repository.AddressRepository
-import org.hibernate.criterion.NotEmptyExpression
-import org.jetbrains.annotations.NotNull
+import com.customerapi.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.PathVariable
 
 
 @Service
 class AddressService(
     @Autowired
-   var addressRepository: AddressRepository
+   var addressRepository: AddressRepository,
+    val customerRepository: CustomerRepository
 
    ) {
 
@@ -22,7 +23,11 @@ class AddressService(
     }
     
     fun findByCustomerId(customer: Int?): List<AddressModel> {
-        return addressRepository.findByCustomerId(customer)
+
+        customer?.let{
+            return addressRepository.findByCustomerId(customer)
+        }
+        return addressRepository.findAll().toList()
     }
 
     fun getFindByIdAddress(id: Int): AddressModel {
@@ -33,8 +38,9 @@ class AddressService(
         return addressRepository.findAll().toList()
     }
 
-    fun delete(id: Int) {
-        addressRepository.deleteById(id)
+    fun delete(id: Int){
+        customerRepository.deleteById(id)
+       return addressRepository.deleteById(id)
     }
 
 }
