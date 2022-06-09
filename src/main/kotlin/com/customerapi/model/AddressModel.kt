@@ -26,7 +26,6 @@ data class AddressModel(
     var main: Boolean? = null,
    // @ManyToMany(cascade = [CascadeType.ALL], mappedBy="mainAddress")
     @ManyToOne(cascade = arrayOf(CascadeType.ALL))
-    @JoinColumn(name = "customer")
-    var customer: CustomerModel? = null
-
+    @JoinColumn(name = "customer_id")
+    var customer: CustomerModel? = CustomerModel()
 )

@@ -40,9 +40,7 @@ class AddressService(
     }
 
     fun delete(id: Int){
-
-
-        customerRepository.deleteById(id)
+        //customerRepository.deleteById(id)
        return addressRepository.deleteById(id)
     }
 

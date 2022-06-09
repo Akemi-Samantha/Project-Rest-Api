@@ -27,7 +27,6 @@ CREATE TABLE public.tb_customer_api (
 	birth_date varchar(255) NULL,
 	cpf varchar(255) NULL,
 	gender varchar(255) NULL,
-	main_address_id int4 NULL,
 	CONSTRAINT tb_customer_api_cpf_key UNIQUE (cpf),
 	CONSTRAINT tb_customer_api_email_key UNIQUE (email),
 	CONSTRAINT tb_customer_api_pkey PRIMARY KEY (id)
@@ -36,4 +35,3 @@ CREATE TABLE public.tb_customer_api (
 
 -- public.tb_customer_api foreign keys
 
-ALTER TABLE public.tb_customer_api ADD CONSTRAINT fkco8ldj7e152w1rabbhchbkpct FOREIGN KEY (main_address_id) REFERENCES public.tb_address_api(id) on update cascade on delete cascade;

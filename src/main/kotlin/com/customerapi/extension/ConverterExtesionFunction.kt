@@ -3,6 +3,7 @@ package com.customerapi.extension
 import com.customerapi.controllers.dto.request.PostAddressRequest
 import com.customerapi.controllers.dto.request.PostCustomerRequest
 import com.customerapi.controllers.dto.request.PutCustomerRequest
+import com.customerapi.controllers.dto.response.CustomerResponse
 import com.customerapi.model.AddressModel
 import com.customerapi.model.CustomerModel
 
@@ -27,6 +28,12 @@ fun PostAddressRequest.toAddressModel(customer: CustomerModel): AddressModel {
         additionalInformation = this.additionalInformation,
         main = this.main,
         customer = customer
+    )
+}
+
+fun CustomerModel.ToCustomerResponse(): CustomerResponse {
+    return CustomerResponse(
+        id, uuid, name, email, birthDate, cpf, gender, mainAddress
     )
 }
 

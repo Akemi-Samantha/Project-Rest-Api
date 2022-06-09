@@ -6,9 +6,9 @@ CREATE TABLE public.tb_address_api (
 	zip_code varchar(255) NULL,
 	"number" varchar(255) NULL,
 	additional_information varchar(255) NULL,
-	main bool NULL,
-	customer_id int4 NULL,
 	street varchar(255) NULL,
+    main bool NULL,
+    customer_id int4 NULL,
 	CONSTRAINT tb_address_api_pkey PRIMARY KEY (id)
 );
 

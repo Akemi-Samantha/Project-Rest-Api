@@ -26,6 +26,3 @@ import javax.persistence.*
     @JoinColumn(name = "main_address_id")
     var mainAddress: AddressModel? = null
 )
-//  @JoinTable(name = "CustomerAddress"
-//            joinColumns = @JoinColumn(name = "main_address_id"),
-//            inverseJoinColumns = @JoinColumn(name = "customer_id"))
