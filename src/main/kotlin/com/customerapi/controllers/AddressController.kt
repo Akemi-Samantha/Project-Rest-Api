@@ -19,7 +19,7 @@ class AddressController(
     @PostMapping("/createAddress")
     @ResponseStatus(HttpStatus.CREATED)
     fun createAddress(@RequestBody request: PostAddressRequest) {
-        val customer = customerService.getCustomerById(request.customerId)
+        val customer = customerService.getCustomerById(request.customer)
         addressService.createAddress(request.toAddressModel(customer))
     }
 

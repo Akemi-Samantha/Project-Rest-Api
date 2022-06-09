@@ -12,8 +12,9 @@ import org.springframework.stereotype.Service
 @Service
 class AddressService(
     @Autowired
-   var addressRepository: AddressRepository,
-    val customerRepository: CustomerRepository
+    var addressRepository: AddressRepository,
+    var customerRepository: CustomerRepository,
+    var customerService: CustomerService
 
    ) {
 
@@ -39,6 +40,8 @@ class AddressService(
     }
 
     fun delete(id: Int){
+
+
         customerRepository.deleteById(id)
        return addressRepository.deleteById(id)
     }

@@ -11,6 +11,6 @@ data class PostAddressRequest(
     var number: String,
     var additionalInformation: String,
     var main: Boolean,
-    @JsonAlias("customer_id")
-    var customerId: Int
+    @JsonAlias("customer")
+    var customer: Int
 )
